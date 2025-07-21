@@ -19,7 +19,7 @@
 - **Miner AI & Physics**: Gravity, collision detection, slope walking, animation
 - **Gold System**: Generation, collection, platform delivery with proper depth placement
 - **Game State Management**: 7-level progression, timers, scoring, UI screens
-- **Mouse Interaction**: Terrain digging/building with Java-accurate brushes
+- **Mouse Interaction**: Terrain digging/building with Java-accurate brushes, trackpad support
 - **Camera System**: Arrow key scrolling with bounds checking
 
 ### ❌ Known Issues Needing Fix

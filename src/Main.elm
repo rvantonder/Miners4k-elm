@@ -1650,7 +1650,7 @@ view model =
                         , text " Drag to build dirt (7×7 brush)"
                         ]
                     , li [ style "margin-bottom" "8px" ]
-                        [ strong [] [ text "Right Mouse Button:" ]
+                        [ strong [] [ text "Right Mouse / Double Touch (Trackpad):" ]
                         , text " Drag to dig terrain"
                         ]
                     , li [ style "margin-bottom" "8px" ]
