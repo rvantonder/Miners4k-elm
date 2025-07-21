@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Miners4k - Elm Recreation</title>
+  <script src="./public/dist/main.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-color: #1a1a1a;
+      font-family: Arial, sans-serif;
+      overflow: hidden; /* Prevent scrolling */
+    }
+    #gameCanvas {
+      cursor: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="elm"></div>
+  <script>
+    var app = Elm.Main.init({ node: document.getElementById('elm'), flags: { height: window.innerHeight, width: window.innerWidth, serverUrl: 'http://localhost:8080' } });
+    
+    // Port for rendering pixels to canvas
+    app.ports.renderPixels.subscribe(function(pixels) {
+      var canvas = document.getElementById('gameCanvas');
+      if (!canvas) return;
+      
+      var ctx = canvas.getContext('2d');
+      var imageData = ctx.createImageData(640, 480);
+      
+      for (var i = 0; i < pixels.length; i++) {
+        var pixel = pixels[i];
+        var r = (pixel >> 16) & 0xFF;
+        var g = (pixel >> 8) & 0xFF;
+        var b = pixel & 0xFF;
+        
+        imageData.data[i * 4] = r;
+        imageData.data[i * 4 + 1] = g;
+        imageData.data[i * 4 + 2] = b;
+        imageData.data[i * 4 + 3] = 255; // Alpha
+      }
+      
+      ctx.putImageData(imageData, 0, 0);
+    });
+    
+    // Port for preventing context menu on canvas
+    app.ports.preventContextMenu.subscribe(function() {
+      var canvas = document.getElementById('gameCanvas');
+      if (canvas) {
+        canvas.addEventListener('contextmenu', function(e) {
+          e.preventDefault();
+        });
+      }
+    });
+    
+    // Prevent space key from scrolling the page
+    document.addEventListener('keydown', function(e) {
+      if (e.code === 'Space') {
+        e.preventDefault();
+      }
+    });
+
+  </script>
+</body>
+</html>
