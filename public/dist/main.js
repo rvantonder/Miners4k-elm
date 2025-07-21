@@ -9534,7 +9534,7 @@ var $author$project$Main$view = function (model) {
 												_List_Nil,
 												_List_fromArray(
 													[
-														$elm$html$Html$text('Right Mouse Button:')
+														$elm$html$Html$text('Right Mouse / Double Touch (Trackpad):')
 													])),
 												$elm$html$Html$text(' Drag to dig terrain')
 											])),
