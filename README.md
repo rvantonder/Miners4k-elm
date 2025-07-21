@@ -1,4 +1,4 @@
-# Miners4K Elm Recreation
+# Miners4k in Elm 
 
 A demo recreation of the classic Java [Miners4k](https://jvm-gaming.org/t/miners4k/25427) game by [@notch](https://x.com/nothc) built with Elm and Canvas rendering.
 
